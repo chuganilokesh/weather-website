@@ -6,6 +6,7 @@ const search=document.querySelector('input')
 const messageOne=document.querySelector('#message-one') 
 const messageTwo=document.querySelector('#message-two') 
 const icon= document.querySelector('.icon')
+
 weatherForm.addEventListener('submit',(e)=>{
     e.preventDefault()
     const location=search.value
@@ -13,7 +14,7 @@ weatherForm.addEventListener('submit',(e)=>{
    messageOne.textContent="loading..."
     messageTwo.textContent=""
     icon.textContent=""
-    fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+    fetch('/weather?address='+location).then((response)=>{
     
     response.json().then((data)=>{
         if(data.error){
